@@ -3,12 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Цифровой магазин</title>
+    <title>VPHO — цифровой магазин</title>
+    <!-- Подключаем шрифт и иконки -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Сброс отступов */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a0b2e; /* тёмный фиолетовый фон */
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        /* Шестерёнка-иконка сверху */
+        .icon {
+            font-size: 70px;
+            color: #b380ff;
+            margin-bottom: 20px;
+            animation: spin 6s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Главное название VPHO */
+        .main-title {
+            font-size: 100px;
+            font-weight: 900;
+            color: #c084fc;
+            text-shadow: 0 0 30px rgba(192, 132, 252, 0.4);
+            letter-spacing: 8px;
+            line-height: 1.1;
+        }
+
+        /* Подзаголовок "цифровой магазин" */
+        .sub-title {
+            font-size: 28px;
+            font-weight: 400;
+            color: #d8b4fe;
+            margin-top: 10px;
+            letter-spacing: 4px;
+        }
+
+        /* Дополнительный текст (можно заменить/убрать) */
+        .description {
+            font-size: 16px;
+            color: #a78bfa;
+            margin-top: 30px;
+            opacity: 0.8;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Кнопка-ссылка для примера (опционально) */
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 40px;
+            background: #7c3aed;
+            color: #fff;
+            font-weight: 700;
+            font-size: 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s;
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn:hover {
+            background: #6d28d9;
+            transform: scale(1.05);
+        }
+
+        /* Адаптация для телефонов */
+        @media (max-width: 600px) {
+            .main-title {
+                font-size: 60px;
+                letter-spacing: 4px;
+            }
+            .sub-title {
+                font-size: 20px;
+                letter-spacing: 2px;
+            }
+            .icon {
+                font-size: 50px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Добро пожаловать в наш цифровой магазин!</h1>
-    <p>Собираем, тестируем и упаковываем готовые решения для ПК. Всё настроено — работает сразу.</p>
-    <p>Почему мы: экономия времени, надёжность, простота и доступные цены со скидками и розыгрышами.</p>
-    <p>Ассортимент обновляется. Подписывайтесь!</p>
+    <div class="container">
+        <!-- Шестерёнка (Font Awesome) -->
+        <div class="icon">
+            <i class="fas fa-cog"></i>
+        </div>
+
+        <!-- Главное название -->
+        <h1 class="main-title">VPHO</h1>
+
+        <!-- Подзаголовок -->
+        <p class="sub-title">⚡ цифровой магазин</p>
+
+        <!-- Короткое описание (можете изменить или убрать) -->
+        <p class="description">
+            Готовые решения для вашего ПК.<br>
+            Надёжно. Просто. С заботой о вас.
+        </p>
+
+        <!-- Кнопка (можете изменить ссылку или убрать) -->
+        <a href="#" class="btn">Перейти в каталог</a>
+    </div>
 </body>
 </html>
