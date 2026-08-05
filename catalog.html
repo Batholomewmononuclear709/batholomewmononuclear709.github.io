@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог — VPHO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f5f0ff;
+            font-family: 'Montserrat', sans-serif;
+            color: #1e1b4b;
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.08);
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            color: #5b21b6;
+            text-decoration: none;
+        }
+        .logo i { color: #7c3aed; margin-right: 10px; }
+        .nav a {
+            color: #4b3a6b;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 700;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        .nav a:hover { color: #7c3aed; }
+        .nav a.active { color: #7c3aed; border-bottom: 3px solid #7c3aed; padding-bottom: 5px; }
+
+        .page-title {
+            font-size: 36px;
+            font-weight: 900;
+            color: #5b21b6;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        .product-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.08);
+            transition: 0.3s;
+        }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15); }
+        .product-card i { font-size: 50px; color: #7c3aed; margin-bottom: 15px; }
+        .product-card h3 { color: #1e1b4b; font-size: 18px; }
+        .product-card .price { color: #7c3aed; font-weight: 900; font-size: 22px; margin: 10px 0; }
+        .product-card .btn-buy {
+            padding: 10px 35px;
+            background: #7c3aed;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 15px;
+        }
+        .product-card .btn-buy:hover { background: #5b21b6; }
+        .badge-new {
+            background: #7c3aed;
+            color: #fff;
+            font-size: 11px;
+            padding: 3px 12px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 5px;
+            font-weight: 700;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            color: #7c3aed;
+            border: 2px solid #7c3aed;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .back-btn:hover { background: #7c3aed; color: #fff; }
+
+        .footer {
+            text-align: center;
+            color: #6d28d9;
+            font-size: 14px;
+            padding: 20px 0;
+            margin-top: 20px;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .header { flex-direction: column; align-items: stretch; text-align: center; }
+            .nav a { margin: 0 12px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <header class="header">
+            <a href="dashboard.html" class="logo"><i class="fas fa-cog"></i> VPHO</a>
+            <nav class="nav">
+                <a href="dashboard.html">Главная</a>
+                <a href="catalog.html" class="active">Магазин</a>
+                <a href="#">Поддержка</a>
+                <a href="#">FAQ</a>
+                <a href="#">Финансы</a>
+            </nav>
+        </header>
+
+        <h1 class="page-title">📦 Каталог товаров</h1>
+
+        <div class="catalog-grid">
+            <div class="product-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>VPN Secure</h3>
+                <div class="price">790 ₽</div>
+                <span class="badge-new">Новинка</span>
+                <br><button class="btn-buy" style="margin-top: 10px;">Купить</button>
+            </div>
+            <div class="product-card">
+                <i class="fas fa-globe"></i>
+                <h3>VPN Freedom</h3>
+                <div class="price">990 ₽</div>
+                <span class="badge-new">Новинка</span>
+                <br><button class="btn-buy" style="margin-top: 10px;">Купить</button>
+            </div>
+            <div class="product-card">
+                <i class="fas fa-lock"></i>
+                <h3>VPN Ultimate</h3>
+                <div class="price">1 290 ₽</div>
+                <span class="badge-new">Новинка</span>
+                <br><button class="btn-buy" style="margin-top: 10px;">Купить</button
